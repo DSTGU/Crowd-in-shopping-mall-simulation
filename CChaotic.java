@@ -1,5 +1,5 @@
 
-public class CChaotic extends CObj{
+public class CChaotic extends CMoveObject{
 	public CChaotic(){
 		super();
 		typ='C';

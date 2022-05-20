@@ -21,19 +21,15 @@ public class CShowObj {
 				maxK=num.K;
 			}
 			
-			
 		}
-		//System.out.println(maxW+" "+maxK);
 		String star="";
-		for(int i = 0; i <= maxK+1; i++) {
-			star=star+"*";
+		for(int i = 0; i <= maxK; i++) {
+			star=star+" ";
 		}
-		System.out.println(star);
 		ArrayList<String> List = new ArrayList<String>();
-		for(int i = 0; i<=maxW+1;i++) {
+		for(int i = 0; i<=maxW;i++) {
 			List.add(star);
 		}
-		
 		
 		for(CObj num: L) {
 			
@@ -48,13 +44,6 @@ public class CShowObj {
 		
 		for(String num: List) {
 			System.out.println(num);
-		}
-		
-		
-		
+		}	
 	}
-	
-	
-	
-	
 }
