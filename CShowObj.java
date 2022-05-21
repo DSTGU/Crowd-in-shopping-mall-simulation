@@ -2,12 +2,7 @@
 import java.util.ArrayList;
 
 //wyswietlanie aktorow na mapie
-public class CShowObj {
-	public ArrayList<CObj> L = new ArrayList<CObj>();
-	public void add(CObj obj) {
-		L.add(obj);
-	}
-	
+public class CShowObj extends CMap {	
 	public void Show() {
 		int maxK=-1;
 		int maxW=-1;

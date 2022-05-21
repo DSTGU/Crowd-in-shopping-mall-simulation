@@ -10,19 +10,19 @@ public class CPerfect extends CMoveObject{
 		super(W, K);
 		typ = 'P';
 	}
-	public void SelMove(ArrayList<Triple> L, CMap map) {
-		if(L.size()==0) return;
-		int x = map.distance[W][K]-1;
-		
-		
-		for(int i = L.size()-1; i>=0;i--) {
-			if(L.get(i).z>x)
-				L.remove(i);
+	
+	public void SelMove(CMap map, CShowObj ShowObj) {
+		ArrayList<Pair> neighbours = explore(ShowObj.L);
+		if(neighbours.size()==0) 
+			return;
+		int mn = map.distance[W][K]-1;
+		for(int i = neighbours.size()-1; i >= 0; i--) {
+			if(map.distance[neighbours.get(i).X][neighbours.get(i).Y]>mn)
+				neighbours.remove(i);
 		}
-		
-		if(L.size()==0) return;
-		int r=gen.nextInt(0, L.size());
-		W = L.get(r).x;
-		K = L.get(r).y;
+		if(neighbours.size()==0) return;
+		int r=gen.nextInt(0, neighbours.size());
+		W = neighbours.get(r).X;
+		K = neighbours.get(r).Y;
 	}
 }

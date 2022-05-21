@@ -10,21 +10,22 @@ public class CUndecided extends CMoveObject{
 		super(W, K);
 		typ = 'U';
 	}
-	public void SelMove(ArrayList<Triple> L, CMap map) {
-		if(L.size()==0) return;
-		int x;
-		x = L.get(0).z;
-		for(Triple l: L) {
-			if(l.z<L.get(0).z)
-				x=l.z;
+	
+	public void SelMove(CMap map, CShowObj ShowObj) {
+		ArrayList<Pair> neighbours = explore(ShowObj.L);
+		if(neighbours.size()==0) 
+			return;
+		int mn = map.distance[neighbours.get(0).X][neighbours.get(0).Y];
+		for(Pair j: neighbours) {
+			if(map.distance[j.X][j.Y]<mn)
+				mn=map.distance[j.X][j.Y];
 		}
-		
-		for(int i = L.size()-1; i>=0;i--) {
-			if(L.get(i).z>x)
-				L.remove(i);
+		for(int i = neighbours.size()-1; i >= 0; i--) {
+			if(map.distance[neighbours.get(i).X][neighbours.get(i).Y]>mn)
+				neighbours.remove(i);
 		}
-		int r=gen.nextInt(0, L.size());
-		W = L.get(r).x;
-		K = L.get(r).y;
+		int r=gen.nextInt(0, neighbours.size());
+		W = neighbours.get(r).X;
+		K = neighbours.get(r).Y;
 	}
 }

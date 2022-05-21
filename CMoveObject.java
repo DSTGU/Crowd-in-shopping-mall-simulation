@@ -11,10 +11,12 @@ public class CMoveObject extends CObj {
 		super(W,K);
 	}
 	
-	public void SelMove(ArrayList<Triple> L, CMap map) {
-		if(L.size()==0) return;
-		int r=gen.nextInt(0, L.size());
-		W = L.get(r).x;
-		K = L.get(r).y;
+	public void SelMove(CMap map, CShowObj ShowObj) {
+		ArrayList<Pair> neighbours = explore(ShowObj.L);
+		if(neighbours.size()==0) 
+			return;
+		int r=gen.nextInt(0, neighbours.size());
+		W = neighbours.get(r).X;
+		K = neighbours.get(r).Y;
 	}
 }

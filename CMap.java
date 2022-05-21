@@ -37,8 +37,12 @@ public class CMap {
 		}
 		for(int i = 0; i < PAIR.size();i++) {
 			Pair r = PAIR.get(i);
-			for(Pair p: explore(r.X,r.Y)) {
-				PAIR.add(p);
+			CObj o = new CObj(r.X, r.Y);
+			for(Pair p: o.explore(L)) {
+				if((distance[r.X][r.Y]+1)<distance[p.X][p.Y]) {
+					distance[p.X][p.Y]=distance[r.X][r.Y]+1;				
+					PAIR.add(p);
+				}
 			}
 		}
 	}
@@ -52,45 +56,4 @@ public class CMap {
 			System.out.println();
 		}
 	}
-	
-	boolean IsObjectAt(int W, int K) {
-		for(CObj S: L) {
-			if((S.W==W)&&(S.K==K)) {
-				return true;
-			}
-		}
-		return false;
-	}
-	
-	public ArrayList<Pair> explore(int W, int K) {
-		
-		ArrayList<Pair> pair = new ArrayList<Pair>(); 
-		
-		if((IsObjectAt(W-1, K))==false){
-			if((distance[W][K]+1)<distance[W-1][K]) {
-					distance[W-1][K]=distance[W][K]+1;
-					pair.add(new Pair(W-1,K));
-			}
-		}
-		if((IsObjectAt(W+1, K))==false){
-			if((distance[W][K]+1)<distance[W+1][K]) {
-					distance[W+1][K] = distance[W][K]+1;
-					pair.add(new Pair(W+1,K));
-			}
-		}
-		if((IsObjectAt(W, K-1))==false){
-			if((distance[W][K]+1)<distance[W][K-1]) {
-					distance[W][K-1]= distance[W][K]+1;
-					pair.add(new Pair(W,K-1));
-			}
-		}
-		if((IsObjectAt(W, K+1))==false){
-			if((distance[W][K]+1)<distance[W][K+1]) {
-					distance[W][K+1]= distance[W][K]+1;
-					pair.add(new Pair(W,K+1));
-			}
-		}
-		return pair;
-	}
-	
 }
