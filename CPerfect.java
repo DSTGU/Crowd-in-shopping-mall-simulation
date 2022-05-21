@@ -1,28 +1,32 @@
+import javax.swing.*;
+import java.awt.*;
 import java.util.ArrayList;
 
 public class CPerfect extends CMoveObject{
 	public CPerfect(){
 		super();
 		typ='P';
+		img = new ImageIcon("imgP.png").getImage();
 	}
-	
+
 	public CPerfect(int W, int K) {
 		super(W, K);
 		typ = 'P';
+		img = new ImageIcon("imgP.png").getImage();
 	}
 	
 	public void SelMove(CMap map, CShowObj ShowObj) {
-		ArrayList<Pair> neighbours = explore(ShowObj.L);
+		ArrayList<CPossition> neighbours = explore(ShowObj.L);
 		if(neighbours.size()==0) 
 			return;
-		int mn = map.distance[W][K]-1;
+		int mn = map.getdistance(getPossition())-1;
 		for(int i = neighbours.size()-1; i >= 0; i--) {
-			if(map.distance[neighbours.get(i).X][neighbours.get(i).Y]>mn)
+			if(map.getdistance(neighbours.get(i))>mn)
 				neighbours.remove(i);
 		}
 		if(neighbours.size()==0) return;
 		int r=gen.nextInt(0, neighbours.size());
-		W = neighbours.get(r).X;
-		K = neighbours.get(r).Y;
+		getPossition().Y = neighbours.get(r).Y;
+		getPossition().X = neighbours.get(r).X;
 	}
 }

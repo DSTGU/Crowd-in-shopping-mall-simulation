@@ -2,11 +2,16 @@ import java.util.ArrayList;
 
 public class CMap {
 
-	int[][] distance = new int[0][]; 
-	int maxW = -1;
-	int maxK = -1;
+	private int[][] distance = new int[0][];
+	private int maxW = -1;
+	private int maxK = -1;
 	ArrayList<CObj> L = new ArrayList<CObj>();
-	
+
+	public int getdistance(CPossition pos){
+
+		return distance[pos.Y][pos.X];
+	}
+
 	public void add(CObj obj) {
 		L.add(obj);
 	}
@@ -14,11 +19,11 @@ public class CMap {
 	public void create() {
 		for(CObj num: L) {
 			
-			if(num.W>maxW) {
-				maxW=num.W;
+			if(num.getPossition().Y>maxW) {
+				maxW=num.getPossition().Y;
 			}
-			if(num.K>maxK) {
-				maxK=num.K;
+			if(num.getPossition().X>maxK) {
+				maxK=num.getPossition().X;
 			}
 		}
 		
@@ -28,19 +33,19 @@ public class CMap {
 				distance[i][j]=100;
 			}
 		}
-		ArrayList<Pair> PAIR = new ArrayList<Pair>();
+		ArrayList<CPossition> PAIR = new ArrayList<CPossition>();
 		for(CObj S: L) {
 			if(S.typ=='O') {
-				distance[S.W][S.K]=0;
-				PAIR.add(new Pair(S.W,S.K));
+				distance[S.getPossition().Y][S.getPossition().X]=0;
+				PAIR.add(new CPossition(S.getPossition().Y,S.getPossition().X));
 			}
 		}
 		for(int i = 0; i < PAIR.size();i++) {
-			Pair r = PAIR.get(i);
-			CObj o = new CObj(r.X, r.Y);
-			for(Pair p: o.explore(L)) {
-				if((distance[r.X][r.Y]+1)<distance[p.X][p.Y]) {
-					distance[p.X][p.Y]=distance[r.X][r.Y]+1;				
+			CPossition r = PAIR.get(i);
+			CObj o = new CObj(r.Y, r.X);
+			for(CPossition p: o.explore(L)) {
+				if((distance[r.Y][r.X]+1)<distance[p.Y][p.X]) {
+					distance[p.Y][p.X]=distance[r.Y][r.X]+1;
 					PAIR.add(p);
 				}
 			}

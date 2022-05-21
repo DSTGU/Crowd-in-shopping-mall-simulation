@@ -9,11 +9,11 @@ public class CShowObj extends CMap {
 		
 		for(CObj num: L) {
 			
-			if(num.W>maxW) {
-				maxW=num.W;
+			if(num.getPossition().Y>maxW) {
+				maxW=num.getPossition().Y;
 			}
-			if(num.K>maxK) {
-				maxK=num.K;
+			if(num.getPossition().X>maxK) {
+				maxK=num.getPossition().X;
 			}
 			
 		}
@@ -21,23 +21,16 @@ public class CShowObj extends CMap {
 		for(int i = 0; i <= maxK; i++) {
 			star=star+" ";
 		}
-		ArrayList<String> List = new ArrayList<String>();
+		ArrayList<String> charMap = new ArrayList<String>();
 		for(int i = 0; i<=maxW;i++) {
-			List.add(star);
+			charMap.add(star);
 		}
 		
 		for(CObj num: L) {
-			
-			String x = List.get(num.W);
-			String y =x.substring(0, num.K);
-			String S = String.valueOf(num.typ);
-			
-			y=y+S+x.substring(num.K+1, x.length());
-			List.remove(num.W);
-			List.add(num.W, y);			
+			num.ShowInCharMap(charMap);
 		}
 		
-		for(String num: List) {
+		for(String num: charMap) {
 			System.out.println(num);
 		}	
 	}

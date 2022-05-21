@@ -7,16 +7,16 @@ public class CMoveObject extends CObj {
 		super();
 	}
 	
-	public CMoveObject(int W, int K) {
-		super(W,K);
+	public CMoveObject(int W, int X) {
+		super(W,X);
 	}
 	
 	public void SelMove(CMap map, CShowObj ShowObj) {
-		ArrayList<Pair> neighbours = explore(ShowObj.L);
+		ArrayList<CPossition> neighbours = explore(ShowObj.L);
 		if(neighbours.size()==0) 
 			return;
 		int r=gen.nextInt(0, neighbours.size());
-		W = neighbours.get(r).X;
-		K = neighbours.get(r).Y;
+		getPossition().Y = neighbours.get(r).Y;
+		getPossition().X = neighbours.get(r).X;
 	}
 }
