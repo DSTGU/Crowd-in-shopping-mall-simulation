@@ -44,7 +44,7 @@ public class CMyPanel extends JPanel implements ActionListener {
 		//sim.ShowObj.Show();
 		sim.stat.compute(sim.L, sim.map);
 		counter++;
-		if(counter==100) {
+		if(counter==1000) {
 			try {
 				sim.stat.savetofile();
 			} catch (IOException ex) {

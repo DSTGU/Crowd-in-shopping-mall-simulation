@@ -46,7 +46,7 @@ public class CSimulator {
 	}
 	
 	public void load_data() throws Exception {
-		String name = "map1.txt";
+		String name = "map2.txt";
 		ArrayList<String> Lp = read_data(name);
 		for(int w =0; w<=Lp.size()-1;w++){
 		String Lk=Lp.get(w);

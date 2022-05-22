@@ -30,7 +30,7 @@ public class CMap {
 		distance= new int[maxW+1][maxK+1];
 		for(int i = 0; i<=maxW; i++ ) {
 			for(int j = 0; j <= maxK; j++) {
-				distance[i][j]=100;
+				distance[i][j]=10000;
 			}
 		}
 		ArrayList<CPossition> PAIR = new ArrayList<CPossition>();
