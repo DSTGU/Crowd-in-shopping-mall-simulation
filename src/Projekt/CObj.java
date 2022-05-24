@@ -8,17 +8,17 @@ import java.util.ArrayList;
 
 public class CObj implements IObj {
 	char typ='0';
-	private CPossition pos = new CPossition();
+	private CPosition pos = new CPosition();
 
 	Image img = new ImageIcon("imgC.png").getImage();
 
 	CObj(){
-		pos=new CPossition();
+		pos=new CPosition();
 		typ='0';
 	}
 	
 	CObj(int Y, int X){
-		pos = new CPossition(Y, X);
+		pos = new CPosition(Y, X);
 	}
 	
 	CObj(int Y, int X, char typ){
@@ -32,7 +32,7 @@ public class CObj implements IObj {
 	}
 
 	@Override
-	public CPossition getPossition() {
+	public CPosition getPosition() {
 		return pos;
 	}
 
@@ -52,12 +52,12 @@ public class CObj implements IObj {
 			charMap.add(pos.Y, y);
 	}
 
-	public ArrayList<CPossition> explore(ArrayList<CObj> L) {
-		ArrayList<CPossition> neighbourhood = new ArrayList<CPossition>();
-		neighbourhood.add(new CPossition(pos.Y-1, pos.X));
-		neighbourhood.add(new CPossition(pos.Y+1, pos.X));
-		neighbourhood.add(new CPossition(pos.Y, pos.X-1));
-		neighbourhood.add(new CPossition(pos.Y, pos.X+1));
+	public ArrayList<CPosition> explore(ArrayList<CObj> L) {
+		ArrayList<CPosition> neighbourhood = new ArrayList<CPosition>();
+		neighbourhood.add(new CPosition(pos.Y-1, pos.X));
+		neighbourhood.add(new CPosition(pos.Y+1, pos.X));
+		neighbourhood.add(new CPosition(pos.Y, pos.X-1));
+		neighbourhood.add(new CPosition(pos.Y, pos.X+1));
 		for(CObj x: L) {
 		for(int i = neighbourhood.size()-1; i>=0; i--) {
 			if((x.yourpositionis(neighbourhood.get(i).Y, neighbourhood.get(i).X))==true)

@@ -19,11 +19,11 @@ public class CUndecided extends CMoveObject{
 
 	@Override
 	public void SelMove(CMap map, CShowObj ShowObj) {
-		ArrayList<CPossition> neighbours = explore(ShowObj.L);
+		ArrayList<CPosition> neighbours = explore(ShowObj.L);
 		if(neighbours.size()==0) 
 			return;
 		int mn = map.getdistance(neighbours.get(0));
-		for(CPossition j: neighbours) {
+		for(CPosition j: neighbours) {
 			if(map.getdistance(j)<mn)
 				mn=map.getdistance(j);
 		}
@@ -32,7 +32,7 @@ public class CUndecided extends CMoveObject{
 				neighbours.remove(i);
 		}
 		int r=gen.nextInt(0, neighbours.size());
-		getPossition().Y = neighbours.get(r).Y;
-		getPossition().X = neighbours.get(r).X;
+		getPosition().Y = neighbours.get(r).Y;
+		getPosition().X = neighbours.get(r).X;
 	}
 }

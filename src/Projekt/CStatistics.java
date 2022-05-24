@@ -34,9 +34,9 @@ public class CStatistics {
             if(i.typ=='U') sumob[2]++;
         }
         for(CMoveObject i: List){
-            if(i.typ=='C') sumdis[0]=sumdis[0]+map.getdistance(i.getPossition());
-            if(i.typ=='P') sumdis[1]=sumdis[1]+map.getdistance(i.getPossition());
-            if(i.typ=='U') sumdis[2]=sumdis[2]+map.getdistance(i.getPossition());
+            if(i.typ=='C') sumdis[0]=sumdis[0]+map.getdistance(i.getPosition());
+            if(i.typ=='P') sumdis[1]=sumdis[1]+map.getdistance(i.getPosition());
+            if(i.typ=='U') sumdis[2]=sumdis[2]+map.getdistance(i.getPosition());
         }
         String S="";
 

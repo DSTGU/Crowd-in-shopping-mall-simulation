@@ -18,17 +18,17 @@ public class CPerfect extends CMoveObject{
 
 	@Override
 	public void SelMove(CMap map, CShowObj ShowObj) {
-		ArrayList<CPossition> neighbours = explore(ShowObj.L);
+		ArrayList<CPosition> neighbours = explore(ShowObj.L);
 		if(neighbours.size()==0) 
 			return;
-		int mn = map.getdistance(getPossition())-1;
+		int mn = map.getdistance(getPosition())-1;
 		for(int i = neighbours.size()-1; i >= 0; i--) {
 			if(map.getdistance(neighbours.get(i))>mn)
 				neighbours.remove(i);
 		}
 		if(neighbours.size()==0) return;
 		int r=gen.nextInt(0, neighbours.size());
-		getPossition().Y = neighbours.get(r).Y;
-		getPossition().X = neighbours.get(r).X;
+		getPosition().Y = neighbours.get(r).Y;
+		getPosition().X = neighbours.get(r).X;
 	}
 }

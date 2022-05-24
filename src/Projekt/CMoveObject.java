@@ -13,11 +13,11 @@ public class CMoveObject extends CObj {
 	}
 	
 	public void SelMove(CMap map, CShowObj ShowObj) {
-		ArrayList<CPossition> neighbours = explore(ShowObj.L);
+		ArrayList<CPosition> neighbours = explore(ShowObj.L);
 		if(neighbours.size()==0) 
 			return;
 		int r=gen.nextInt(0, neighbours.size());
-		getPossition().Y = neighbours.get(r).Y;
-		getPossition().X = neighbours.get(r).X;
+		getPosition().Y = neighbours.get(r).Y;
+		getPosition().X = neighbours.get(r).X;
 	}
 }

@@ -1,14 +1,14 @@
 package Projekt;
 
-public class CPossition {
+public class CPosition {
     public int Y;
     public int X;
 
-    public CPossition(){
+    public CPosition(){
         Y=0;
         X=0;
     }
-    public CPossition(int Y, int X){
+    public CPosition(int Y, int X){
         this.Y=Y;
         this.X=X;
     }

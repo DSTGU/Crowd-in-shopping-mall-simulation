@@ -29,19 +29,19 @@ public class CChaotic extends CMoveObject{
 			phase = (phase+1)%2;
 		}
 		if (phase == 0) {
-			ArrayList<CPossition> neighbours = explore(ShowObj.L);
+			ArrayList<CPosition> neighbours = explore(ShowObj.L);
 			if (neighbours.size() == 0)
 				return;
 			int r = gen.nextInt(0, neighbours.size());
-			getPossition().Y = neighbours.get(r).Y;
-			getPossition().X = neighbours.get(r).X;
+			getPosition().Y = neighbours.get(r).Y;
+			getPosition().X = neighbours.get(r).X;
 		}
 		if (phase == 1) {
-			ArrayList<CPossition> neighbours = explore(ShowObj.L);
+			ArrayList<CPosition> neighbours = explore(ShowObj.L);
 			if(neighbours.size()==0)
 				return;
 			int mn = map.getdistance(neighbours.get(0));
-			for(CPossition j: neighbours) {
+			for(CPosition j: neighbours) {
 				if(map.getdistance(j)<mn)
 					mn=map.getdistance(j);
 			}
@@ -50,8 +50,8 @@ public class CChaotic extends CMoveObject{
 					neighbours.remove(i);
 			}
 			int r=gen.nextInt(0, neighbours.size());
-			getPossition().Y = neighbours.get(r).Y;
-			getPossition().X = neighbours.get(r).X;
+			getPosition().Y = neighbours.get(r).Y;
+			getPosition().X = neighbours.get(r).X;
 		}
 	}
 

@@ -9,11 +9,11 @@ public class CShowObj extends CMap {
 		
 		for(CObj num: L) {
 			
-			if(num.getPossition().Y>maxW) {
-				maxW=num.getPossition().Y;
+			if(num.getPosition().Y>maxW) {
+				maxW=num.getPosition().Y;
 			}
-			if(num.getPossition().X>maxK) {
-				maxK=num.getPossition().X;
+			if(num.getPosition().X>maxK) {
+				maxK=num.getPosition().X;
 			}
 			
 		}

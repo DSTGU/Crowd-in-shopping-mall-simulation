@@ -38,7 +38,7 @@ public class CSimulator {
 	public void executestep(CShowObj ShowObj, CMap map) {
 		for(int j = L.size()-1; j>=0; j--) {
 			CMoveObject o = L.get(j);
-			if(map.getdistance(o.getPossition())==1) {
+			if(map.getdistance(o.getPosition())==1) {
 				o.gotoOut();
 				L.remove(j);
 				continue;
