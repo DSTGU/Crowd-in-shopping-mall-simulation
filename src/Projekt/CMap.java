@@ -4,12 +4,12 @@ import java.util.ArrayList;
 public class CMap {
 
 	private int[][] distance = new int[0][];
-	private int maxW = -1;
-	private int maxK = -1;
+	private int maxY = -1;
+	private int maxX = -1;
 	ArrayList<CObj> L = new ArrayList<CObj>();
+	static int lSize;
 
 	public int getdistance(CPosition pos){
-
 		return distance[pos.Y][pos.X];
 	}
 
@@ -20,17 +20,17 @@ public class CMap {
 	public void create() {
 		for(CObj num: L) {
 			
-			if(num.getPosition().Y>maxW) {
-				maxW=num.getPosition().Y;
+			if(num.getPosition().Y>maxY) {
+				maxY=num.getPosition().Y;
 			}
-			if(num.getPosition().X>maxK) {
-				maxK=num.getPosition().X;
+			if(num.getPosition().X>maxX) {
+				maxX=num.getPosition().X;
 			}
 		}
 		
-		distance= new int[maxW+1][maxK+1];
-		for(int i = 0; i<=maxW; i++ ) {
-			for(int j = 0; j <= maxK; j++) {
+		distance= new int[maxY+1][maxX+1];
+		for(int i = 0; i<=maxY; i++ ) {
+			for(int j = 0; j <= maxX; j++) {
 				distance[i][j]=10000;
 			}
 		}
@@ -55,8 +55,8 @@ public class CMap {
 	
 	void SHOW() {
 		
-		for(int i = 0; i<=maxW; i++ ) {
-			for(int j = 0; j <= maxK; j++) {
+		for(int i = 0; i<=maxY; i++ ) {
+			for(int j = 0; j <= maxX; j++) {
 				System.out.print(distance[i][j]+" ");
 			}
 			System.out.println();

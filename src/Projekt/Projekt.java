@@ -6,7 +6,8 @@ import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 import java.io.File;
 
-public class Projekt {	
+public class Projekt {
+	static int tempdebug = 1;
 	static CSimulator sim = new CSimulator();
 	public static void main(String[] args) throws Exception  {
 		new CMyFrame("map2.txt");

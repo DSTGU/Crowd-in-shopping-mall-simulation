@@ -15,9 +15,9 @@ import javax.swing.Timer;
 public class CMyPanel extends JPanel implements ActionListener {
 	Timer timer;
 	CSimulator sim = new CSimulator();
-	final int Panel_width = 3440;
-	final int Panel_height = 1440;
-	int counter=0;
+	final int Panel_width = 1920;
+	final int Panel_height = 1080;
+	static public int counter=0;
 
 	CMyPanel(String mapFilename) throws Exception{
 		this.setPreferredSize(new Dimension(Panel_width, Panel_height));

@@ -49,8 +49,9 @@ public class CStatistics {
             }
         }
         stats.add(S);
-        System.out.println(S);
-
+        if (Projekt.tempdebug == 0) {
+            System.out.println(S);
+        }
     }
 
 }

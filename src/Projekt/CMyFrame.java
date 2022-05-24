@@ -12,7 +12,6 @@ public class CMyFrame extends JFrame {
 		this.pack();
 		this.setLocationRelativeTo(null);
 		this.setVisible(true);
-		
 	}
 
 }

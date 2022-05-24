@@ -7,8 +7,10 @@ import java.util.Random;
 public class CChaotic extends CMoveObject{
 
 	Random gen = new Random();
-	int counter = 0; // Do refaktoryzacji. Uzależnić od globalnego timera jak się go znajdzie
-	int phase = 0;
+	int timer = 0;
+	int counter = 0;
+	int phase = -1;
+	//int initObjCount = CMap.getObjCount();
 
 	public CChaotic(){
 		super();
@@ -23,12 +25,15 @@ public class CChaotic extends CMoveObject{
 	}
 
 	public void SelMove(CMap map, CShowObj ShowObj) {
+
+		timer = CMyPanel.counter;
 		counter++;
-		if(counter > (gen.nextInt()%60))
+		if(counter-20 > timer*phase*0.5+(gen.nextInt()%180)) //Im później tym mniej "skonfundowani" są chaotiki
 		{
-			phase = (phase+1)%2;
+			phase *= -1;
 		}
-		if (phase == 0) {
+
+		if (phase == -1) { //Jeśli faza == -1 to losowo
 			ArrayList<CPosition> neighbours = explore(ShowObj.L);
 			if (neighbours.size() == 0)
 				return;
@@ -36,7 +41,7 @@ public class CChaotic extends CMoveObject{
 			getPosition().Y = neighbours.get(r).Y;
 			getPosition().X = neighbours.get(r).X;
 		}
-		if (phase == 1) {
+		if (phase == 1) { //Jeśli faza == 1 to perfekcyjnie
 			ArrayList<CPosition> neighbours = explore(ShowObj.L);
 			if(neighbours.size()==0)
 				return;
