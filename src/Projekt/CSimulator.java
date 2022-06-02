@@ -52,32 +52,33 @@ public class CSimulator {
 		ArrayList<String> Lp = read_data(mapFilename);
 		for(int w =0; w<=Lp.size()-1;w++){
 		String Lk=Lp.get(w);
-		for(int k = 0; k <= Lk.length()-1;k++) {
-		if(Lk.charAt(k)=='W') {
+		for(int k = 0; k <= Lk.length()-1;k++) { // Inicjuje klasy względem tego gdzie jest jaka literka
+
+		if(Lk.charAt(k)=='W') { // Wall
 			CWall obj = new CWall(w,k);
 			ShowObj.add(obj);
 			map.add(obj);
 				}
 
-		if(Lk.charAt(k)=='U') {
+		if(Lk.charAt(k)=='U') { // Undecided
 			CUndecided obj = new CUndecided(w,k);
 			ShowObj.add(obj);
 			add(obj);
 				}
 
-		if(Lk.charAt(k)=='P') {
+		if(Lk.charAt(k)=='P') { // Perfect
 			CPerfect obj = new CPerfect(w,k);
 			ShowObj.add(obj);
 			add(obj);
 				}
 
-		if(Lk.charAt(k)=='O') {
+		if(Lk.charAt(k)=='O') { // Exit
 			CExit obj = new CExit(w,k);
 			ShowObj.add(obj);
 			map.add(obj);
 				}
 
-		if(Lk.charAt(k)=='C') {
+		if(Lk.charAt(k)=='C') { // Chaotic
 			CChaotic obj = new CChaotic(w,k);
 			ShowObj.add(obj);
 			add(obj);

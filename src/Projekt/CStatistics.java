@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class CStatistics {
     ArrayList<String> stats = new ArrayList<String>();
-    public void savetofile() throws IOException {
+    public void savetofile() throws IOException { // A u mnie nie działa
         FileWriter fWriter = null;
         try {
             fWriter = new FileWriter("statistics.csv");

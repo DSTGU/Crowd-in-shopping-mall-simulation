@@ -23,7 +23,7 @@ public class CMyPanel extends JPanel implements ActionListener {
 		this.setPreferredSize(new Dimension(Panel_width, Panel_height));
 		this.setBackground(Color.black);
 		timer = new Timer(50, this);
-		sim.start(mapFilename);
+		sim.start(mapFilename); // Rozpoczęcie symulacji
 		timer.start();
 		
 	}
